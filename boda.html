@@ -738,6 +738,114 @@
             margin-top: 40px;
         }
 
+        /* ── MUSIC PLAYER ───────────────────────────────── */
+        .music-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 24px;
+            z-index: 200;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(250, 246, 240, .92);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(201, 169, 110, .4);
+            box-shadow: 0 4px 20px rgba(61, 43, 31, .18);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .2s, box-shadow .2s;
+            padding: 0;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(61, 43, 31, .25);
+        }
+
+        .music-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold-dk);
+            transition: opacity .2s;
+        }
+
+        .music-btn .icon-pause {
+            display: none;
+        }
+
+        .music-btn.playing .icon-play {
+            display: none;
+        }
+
+        .music-btn.playing .icon-pause {
+            display: block;
+        }
+
+        .music-wave {
+            position: fixed;
+            bottom: 82px;
+            right: 28px;
+            z-index: 200;
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 20px;
+            opacity: 0;
+            transition: opacity .3s;
+            pointer-events: none;
+        }
+
+        .music-wave.active {
+            opacity: 1;
+        }
+
+        .music-wave span {
+            display: block;
+            width: 3px;
+            border-radius: 2px;
+            background: var(--gold);
+            animation: wave 1s ease-in-out infinite;
+        }
+
+        .music-wave span:nth-child(1) {
+            height: 8px;
+            animation-delay: 0s;
+        }
+
+        .music-wave span:nth-child(2) {
+            height: 14px;
+            animation-delay: .15s;
+        }
+
+        .music-wave span:nth-child(3) {
+            height: 20px;
+            animation-delay: .3s;
+        }
+
+        .music-wave span:nth-child(4) {
+            height: 14px;
+            animation-delay: .45s;
+        }
+
+        .music-wave span:nth-child(5) {
+            height: 8px;
+            animation-delay: .6s;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: scaleY(.4);
+            }
+
+            50% {
+                transform: scaleY(1);
+            }
+        }
+
         /* ── SECTION HEADINGS ───────────────────────────── */
         .section-heading {
             font-family: 'Cormorant Garamond', serif;
@@ -821,6 +929,27 @@
 </head>
 
 <body>
+
+    <!-- MUSIC -->
+    <!-- Cambia "cancion.mp3" por la ruta de tu archivo de música -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="assets/cancion.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="music-wave" id="music-wave">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <button class="music-btn" id="music-btn" aria-label="Reproducir música">
+        <!-- Play icon -->
+        <svg class="icon-play" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7z" />
+        </svg>
+        <!-- Pause icon -->
+        <svg class="icon-pause" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+    </button>
 
     <!-- NAV -->
     <nav id="main-nav">
@@ -1142,6 +1271,40 @@
             a.download = 'boda-siria-alfonso.ics';
             a.click();
             URL.revokeObjectURL(a.href);
+        });
+
+        // ── MUSIC PLAYER ──────────────────────────────────────
+        const audio = document.getElementById('bg-audio');
+        const musicBtn = document.getElementById('music-btn');
+        const musicWave = document.getElementById('music-wave');
+
+        function setPlaying(state) {
+            musicBtn.classList.toggle('playing', state);
+            musicWave.classList.toggle('active', state);
+            musicBtn.setAttribute('aria-label', state ? 'Pausar música' : 'Reproducir música');
+        }
+
+        // Arrancar en el primer gesto del usuario (política de navegadores)
+        function startOnInteraction() {
+            audio.play().then(() => {
+                setPlaying(true);
+                ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+                    document.removeEventListener(ev, startOnInteraction)
+                );
+            }).catch(() => { });
+        }
+        ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+            document.addEventListener(ev, startOnInteraction, { once: true })
+        );
+
+        musicBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                setPlaying(true);
+            } else {
+                audio.pause();
+                setPlaying(false);
+            }
         });
 
         // ── SCROLL REVEAL ─────────────────────────────────────
