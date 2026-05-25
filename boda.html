@@ -99,6 +99,7 @@
             z-index: 100;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 32px;
             padding: 16px 24px;
             background: rgba(250, 246, 240, .92);
@@ -117,6 +118,100 @@
 
         nav a:hover {
             color: var(--gold);
+        }
+
+        /* ── HAMBURGER ──────────────────────────────────── */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--text-lt);
+            transition: transform .3s, opacity .3s, width .3s;
+            transform-origin: center;
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+            width: 0;
+        }
+
+        .nav-toggle.open span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
+
+        @media (max-width: 640px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            nav {
+                justify-content: flex-start;
+                padding: 14px 20px;
+                flex-wrap: wrap;
+                gap: 0;
+            }
+
+            .nav-brand {
+                font-family: 'Great Vibes', cursive;
+                font-size: 22px;
+                color: var(--gold);
+                pointer-events: none;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 12px 0 8px;
+                gap: 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 4px;
+                font-size: 11px;
+                letter-spacing: 3px;
+                border-bottom: 1px solid rgba(201, 169, 110, .15);
+                text-align: left;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (min-width: 641px) {
+            .nav-brand {
+                display: none;
+            }
+
+            .nav-links {
+                display: contents;
+            }
         }
 
         /* ── HERO ───────────────────────────────────────── */
@@ -699,15 +794,6 @@
 
         /* ── RESPONSIVE ─────────────────────────────────── */
         @media (max-width: 640px) {
-            nav {
-                gap: 16px;
-            }
-
-            nav a {
-                font-size: 9px;
-                letter-spacing: 2px;
-            }
-
             .dress-grid {
                 grid-template-columns: 1fr;
             }
@@ -748,14 +834,21 @@
 <body>
 
     <!-- NAV -->
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#historia">Historia</a>
-        <a href="#contador">Fecha</a>
-        <a href="#evento">El Día</a>
-        <a href="#lugar">Lugar</a>
-        <a href="#dresscode">Código de vestimenta</a>
-        <a href="#regalos">Regalos</a>
+    <nav id="main-nav">
+        <span class="nav-brand">S &amp; A</span>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
+            aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#historia">Historia</a>
+            <a href="#contador">Fecha</a>
+            <a href="#evento">El Día</a>
+            <a href="#lugar">Lugar</a>
+            <a href="#dresscode">Dress Code</a>
+            <a href="#regalos">Regalos</a>
+        </div>
     </nav>
 
     <!-- HERO -->
@@ -1068,6 +1161,24 @@
             { threshold: 0.12 }
         );
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ── HAMBURGER MENU ────────────────────────────────────
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        navToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open', open);
+            navToggle.setAttribute('aria-expanded', open);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
     </script>
 </body>
 
