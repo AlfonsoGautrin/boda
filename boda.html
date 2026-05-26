@@ -530,33 +530,29 @@
         .schedule-item {
             display: grid;
             grid-template-columns: 1fr 40px 1fr;
-            align-items: center;
+            align-items: start;
             gap: 16px;
             margin-bottom: 40px;
         }
 
-        .schedule-item:nth-child(odd) .s-content {
+        .schedule-item .s-content:first-child {
             text-align: right;
             grid-column: 1;
         }
 
-        .schedule-item:nth-child(odd) .s-dot {
-            grid-column: 2;
-        }
-
-        .schedule-item:nth-child(odd) .s-empty {
-            grid-column: 3;
-        }
-
-        .schedule-item:nth-child(even) .s-empty {
+        .schedule-item .s-empty:first-child {
             grid-column: 1;
         }
 
-        .schedule-item:nth-child(even) .s-dot {
+        .schedule-item .s-dot {
             grid-column: 2;
         }
 
-        .schedule-item:nth-child(even) .s-content {
+        .schedule-item .s-empty:last-child {
+            grid-column: 3;
+        }
+
+        .schedule-item .s-content:last-child {
             grid-column: 3;
             text-align: left;
         }
@@ -569,6 +565,7 @@
             border: 3px solid var(--cream);
             box-shadow: 0 0 0 1px var(--gold);
             justify-self: center;
+            margin-top: 48px;
             flex-shrink: 0;
         }
 
@@ -986,6 +983,10 @@
                 gap: 6px;
             }
 
+            .s-dot {
+                margin-top: 38px;
+            }
+
             .s-title {
                 font-size: 14px;
             }
@@ -1114,11 +1115,11 @@
 
         <div class="babies-grid">
             <div class="reveal">
-                <img class="story-photo" src="assets/babys.jpeg" alt="Siria" />
+                <img class="story-photo" src="assets/baby_siria.png" alt="Siria" />
                 <p class="story-photo-caption" style="text-align:center;">Siria</p>
             </div>
             <div class="reveal">
-                <img class="story-photo" src="assets/babys.jpeg" alt="Siria" />
+                <img class="story-photo" src="assets/baby_alfonso.png" alt="Siria" />
                 <p class="story-photo-caption" style="text-align:center;">Alfonso</p>
             </div>
         </div>
@@ -1148,7 +1149,7 @@
 
         <blockquote class="babies-quote reveal" style="color:var(--text); border-color:var(--gold);">
             “Eres la persona con quien quiero compartir todos mis días que me queden.”
-            <cite style="color:var(--text-lt);">Siria &amp; Alfonso · 2026</cite>
+            <!-- <cite style="color:var(--text-lt);">Siria &amp; Alfonso · 2026</cite> -->
         </blockquote>
     </section>
 
@@ -1212,19 +1213,10 @@
                 <div class="s-empty"></div>
             </div>
             <div class="schedule-item reveal">
-                <div class="s-empty"></div>
-                <div class="s-dot"></div>
-                <div class="s-content">
-                    <p class="s-icon">🥂</p>
-                    <p class="s-title serif">Cóctel de bienvenida</p>
-                    <p class="s-time">8:00 p.m.</p>
-                </div>
-            </div>
-            <div class="schedule-item reveal">
                 <div class="s-content">
                     <p class="s-icon">🎊</p>
                     <p class="s-title serif">Recepción</p>
-                    <p class="s-time">10:00 p.m.</p>
+                    <p class="s-time">09:00 p.m.</p>
                     <p style="font-size:11px;color:var(--text-lt);margin-top:4px;">Salón De Eventos SNTE 54</p>
                 </div>
                 <div class="s-dot"></div>
@@ -1254,7 +1246,7 @@
                 <div class="s-content">
                     <p class="s-icon">🌙</p>
                     <p class="s-title serif">Bye bye</p>
-                    <p class="s-time">1:00 a.m.</p>
+                    <p class="s-time">2:00 a.m.</p>
                 </div>
             </div>
         </div>
@@ -1275,17 +1267,17 @@
                 <h3 class="venue-name" style="font-size:clamp(20px,3vw,28px);margin:0 0 8px;">Parroquia Nuestra Señora
                     del Carmen</h3>
                 <p class="venue-address">Te esperamos para la ceremonia religiosa</p>
-                <a class="btn btn--dark" href="https://maps.google.com/?q=Parroquia+Nuestra+Señora+del+Carmen"
-                    target="_blank" rel="noopener" style="margin-top:16px;">📍 &nbsp; Cómo llegar</a>
+                <a class="btn btn--dark" href="https://maps.app.goo.gl/Qfz8uq5GLuFFkhLy5" target="_blank" rel="noopener"
+                    style="margin-top:16px;">📍 &nbsp; Cómo llegar</a>
             </div>
             <div class="reveal" style="text-align:center;">
                 <p style="font-size:28px;margin-bottom:12px;">🎊</p>
-                <p class="label" style="margin-bottom:8px;">Recepción · 10:00 p.m.</p>
+                <p class="label" style="margin-bottom:8px;">Recepción · 09:00 p.m.</p>
                 <h3 class="venue-name" style="font-size:clamp(20px,3vw,28px);margin:0 0 8px;">Salón De Eventos SNTE 54
                 </h3>
                 <p class="venue-address">Continuemos la celebración juntos</p>
-                <a class="btn btn--dark" href="https://maps.google.com/?q=Salón+De+Eventos+SNTE+54" target="_blank"
-                    rel="noopener" style="margin-top:16px;">📍 &nbsp; Cómo llegar</a>
+                <a class="btn btn--dark" href="https://maps.app.goo.gl/srQWypKNEG2L8Hvx7" target="_blank" rel="noopener"
+                    style="margin-top:16px;">📍 &nbsp; Cómo llegar</a>
             </div>
         </div>
     </section>
@@ -1356,7 +1348,7 @@
         </p>
 
         <div class="gift-cards">
-            <a class="gift-card reveal" href="Link" target="_blank" rel="noopener">
+            <!-- <a class="gift-card reveal" href="Link" target="_blank" rel="noopener">
                 <span class="g-icon">🏬</span>
                 <span class="g-name serif">Liverpool</span>
                 <span class="g-detail">Número de evento: 51879129</span>
@@ -1365,13 +1357,20 @@
                 <span class="g-icon">📦</span>
                 <span class="g-name serif">Amazon</span>
                 <span class="g-detail">Siria Guadalupe Quiroz Básaca</span>
-            </a>
+            </a> -->
             <div class="gift-card reveal">
                 <span class="g-icon">🏦</span>
                 <span class="g-name serif">Banorte</span>
                 <span class="g-detail">Alfonso Gautrin Ojeda</span>
                 <span class="g-detail" style="font-size:13px; letter-spacing:1px; color:var(--text-lt);">3443 5352 9483
                     8473</span>
+            </div>
+            <div class="gift-card reveal">
+                <span class="g-icon">🏦</span>
+                <span class="g-name serif">BBVA Bancomer</span>
+                <span class="g-detail">Siria Guadalupe Quiroz Básaca</span>
+                <span class="g-detail" style="font-size:13px; letter-spacing:1px; color:var(--text-lt);">4152 3140 4845
+                    3651</span>
             </div>
             <div class="gift-card reveal">
                 <span class="g-icon">💌</span>
