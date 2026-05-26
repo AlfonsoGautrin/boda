@@ -43,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* ── UTILITIES ─────────────────────────────────── */
         .section {
             padding: 90px 24px;
             text-align: center;
@@ -90,7 +89,6 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        /* ── NAV ────────────────────────────────────────── */
         nav {
             position: fixed;
             top: 0;
@@ -120,7 +118,6 @@
             color: var(--gold);
         }
 
-        /* ── HAMBURGER ──────────────────────────────────── */
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -214,7 +211,6 @@
             }
         }
 
-        /* ── HERO ───────────────────────────────────────── */
         #inicio {
             min-height: 100vh;
             display: flex;
@@ -316,7 +312,6 @@
             opacity: .5;
         }
 
-        /* ── HISTORIA ───────────────────────────────────── */
         .story-photo-wrap {
             max-width: 680px;
             margin: 52px auto 0;
@@ -346,7 +341,6 @@
             margin-top: 20px;
         }
 
-        /* ── BEBES ──────────────────────────────────────── */
         .babies-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -380,7 +374,6 @@
             margin-top: 16px;
         }
 
-        /* ── WHATSAPP BUTTON ────────────────────────────── */
         .wa-btn {
             display: inline-flex;
             align-items: center;
@@ -410,7 +403,6 @@
             flex-shrink: 0;
         }
 
-        /* ── FLORAL SEPARATOR ───────────────────────────── */
         .floral-sep {
             display: block;
             width: 100%;
@@ -421,7 +413,6 @@
             opacity: .8;
         }
 
-        /* ── COUNTDOWN ──────────────────────────────────── */
         #contador {
             background:
                 linear-gradient(135deg, #3d2b1f 0%, #5c3d2a 50%, #3d2b1f 100%);
@@ -506,7 +497,6 @@
             color: var(--white);
         }
 
-        /* ── EL GRAN DÍA ────────────────────────────────── */
         .schedule {
             max-width: 700px;
             margin: 52px auto 0;
@@ -591,7 +581,6 @@
             margin-bottom: 6px;
         }
 
-        /* ── LUGAR ──────────────────────────────────────── */
         .map-frame {
             width: 100%;
             max-width: 700px;
@@ -615,7 +604,6 @@
             margin-bottom: 32px;
         }
 
-        /* ── DRESS CODE ─────────────────────────────────── */
         .dress-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -703,7 +691,6 @@
             background: #808000;
         }
 
-        /* ── REGALOS ────────────────────────────────────── */
         .gift-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -749,7 +736,6 @@
             color: var(--gold);
         }
 
-        /* ── GALERÍA ────────────────────────────────────── */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -785,7 +771,6 @@
             text-transform: uppercase;
         }
 
-        /* ── FOOTER ─────────────────────────────────────── */
         footer {
             background: var(--text);
             color: var(--cream);
@@ -813,7 +798,6 @@
             margin-top: 40px;
         }
 
-        /* ── MUSIC PLAYER ───────────────────────────────── */
         .music-btn {
             position: fixed;
             bottom: 28px;
@@ -921,7 +905,6 @@
             }
         }
 
-        /* ── SECTION HEADINGS ───────────────────────────── */
         .section-heading {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(34px, 6vw, 52px);
@@ -939,7 +922,6 @@
             line-height: 1.8;
         }
 
-        /* ── ANIMATIONS ─────────────────────────────────── */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -975,7 +957,6 @@
             transform: none;
         }
 
-        /* ── RESPONSIVE ─────────────────────────────────── */
         @media (max-width: 640px) {
             .dress-grid {
                 grid-template-columns: 1fr;
@@ -1009,22 +990,21 @@
 
 <body>
 
-    <!-- FLORAL ORNAMENT SYMBOL (reutilizable) -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display:none;position:absolute;" aria-hidden="true">
         <symbol id="floral-ornament" viewBox="0 0 480 36">
             <line x1="0" y1="18" x2="226" y2="18" stroke="currentColor" stroke-width="0.7" opacity="0.5" />
             <line x1="254" y1="18" x2="480" y2="18" stroke="currentColor" stroke-width="0.7" opacity="0.5" />
-            <!-- Left leaves -->
+
             <path d="M210,18 C206,11 197,9 190,12 C197,11 204,14 208,18Z" fill="currentColor" opacity="0.75" />
             <path d="M210,18 C206,25 197,27 190,24 C197,25 204,22 208,18Z" fill="currentColor" opacity="0.75" />
             <path d="M186,18 C182,11 173,9 166,12 C173,11 180,14 184,18Z" fill="currentColor" opacity="0.5" />
             <path d="M186,18 C182,25 173,27 166,24 C173,25 180,22 184,18Z" fill="currentColor" opacity="0.5" />
             <path d="M162,18 C158,11 149,9 142,12 C149,11 156,14 160,18Z" fill="currentColor" opacity="0.28" />
             <path d="M162,18 C158,25 149,27 142,24 C149,25 156,22 160,18Z" fill="currentColor" opacity="0.28" />
-            <!-- Center diamond -->
+
             <path d="M240,10 L249,18 L240,26 L231,18 Z" fill="currentColor" />
             <circle cx="240" cy="18" r="2.2" fill="white" opacity="0.55" />
-            <!-- Right leaves (mirrored) -->
+
             <path d="M270,18 C274,11 283,9 290,12 C283,11 276,14 272,18Z" fill="currentColor" opacity="0.75" />
             <path d="M270,18 C274,25 283,27 290,24 C283,25 276,22 272,18Z" fill="currentColor" opacity="0.75" />
             <path d="M294,18 C298,11 307,9 314,12 C307,11 300,14 296,18Z" fill="currentColor" opacity="0.5" />
@@ -1034,8 +1014,6 @@
         </symbol>
     </svg>
 
-    <!-- MUSIC -->
-    <!-- Cambia "cancion.mp3" por la ruta de tu archivo de música -->
     <audio id="bg-audio" loop preload="auto">
         <source src="assets/cancion.mp3" type="audio/mpeg" />
     </audio>
@@ -1045,17 +1023,16 @@
     </div>
 
     <button class="music-btn" id="music-btn" aria-label="Reproducir música">
-        <!-- Play icon -->
+
         <svg class="icon-play" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 5v14l11-7z" />
         </svg>
-        <!-- Pause icon -->
+
         <svg class="icon-pause" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
         </svg>
     </button>
 
-    <!-- NAV -->
     <nav id="main-nav">
         <span class="nav-brand">S &amp; A</span>
         <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
@@ -1073,7 +1050,6 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <section id="inicio">
         <div class="floral-top">🌸</div>
         <div class="floral-bottom">🌿</div>
@@ -1087,7 +1063,6 @@
         <div class="scroll-hint">Desliza</div>
     </section>
 
-    <!-- HISTORIA -->
     <section id="historia" class="section section--alt">
         <p class="label reveal">Nuestra historia</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1096,7 +1071,7 @@
         <h2 class="section-heading reveal">Un amor que comenzó hace tiempo</h2>
 
         <div class="story-photo-wrap reveal">
-            <!-- Reemplaza el src con la URL de tu foto -->
+
             <div class="story-photo">
                 <img class="story-photo" src="assets/foto.jpeg" alt="Siria & Alfonso" />
             </div>
@@ -1104,7 +1079,6 @@
         </div>
     </section>
 
-    <!-- BEBES -->
     <section id="bebes" class="section">
         <p class="label reveal">El principio de todo</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1133,7 +1107,6 @@
         </blockquote>
     </section>
 
-    <!-- FOTO EXTRA -->
     <section class="section section--alt">
         <p class="label reveal" style="color:var(--gold-dk);">Cuando todo cambió</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1152,12 +1125,10 @@
 
         <blockquote class="babies-quote reveal" style="color:var(--text); border-color:var(--gold);">
             “Eres la persona con quien quiero compartir todos los días que me queden.”
-            <!-- <cite style="color:var(--text-lt);">Siria &amp; Alfonso · 2026</cite> -->
+
         </blockquote>
     </section>
 
-
-    <!-- COUNTDOWN -->
     <section id="contador" class="section">
         <p class="label reveal">El tiempo está corriendo</p>
         <h2 class="section-heading reveal" style="color: var(--cream);">… Contamos los días</h2>
@@ -1191,7 +1162,6 @@
         <a class="btn" href="#" style="margin-top:48px;" id="btn-ics">📅 &nbsp; Aparta la fecha</a>
     </section>
 
-    <!-- EL GRAN DÍA -->
     <section id="evento" class="section section--alt">
         <p class="label reveal">28 de agosto · 2026</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1255,7 +1225,6 @@
         </div>
     </section>
 
-    <!-- LUGAR -->
     <section id="lugar" class="section">
         <p class="label reveal">¿Dónde?</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1285,7 +1254,6 @@
         </div>
     </section>
 
-    <!-- DRESS CODE -->
     <section id="dresscode" class="section section--alt">
         <p class="label reveal">Vestimenta</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1330,15 +1298,11 @@
                     <span class="swatch-cobalt-blue"></span>
                     <span>Azul marino</span>
                 </div>
-                <!-- <div class="color-swatch">
-                    <span class="swatch-olive"></span>
-                    <span>Verde olivo</span>
-                </div> -->
+
             </div>
         </div>
     </section>
 
-    <!-- REGALOS -->
     <section id="regalos" class="section">
         <p class="label reveal">Mesa de regalos</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1351,16 +1315,7 @@
         </p>
 
         <div class="gift-cards">
-            <!-- <a class="gift-card reveal" href="Link" target="_blank" rel="noopener">
-                <span class="g-icon">🏬</span>
-                <span class="g-name serif">Liverpool</span>
-                <span class="g-detail">Número de evento: 51879129</span>
-            </a>
-            <a class="gift-card reveal" href="Link" target="_blank" rel="noopener">
-                <span class="g-icon">📦</span>
-                <span class="g-name serif">Amazon</span>
-                <span class="g-detail">Siria Guadalupe Quiroz Básaca</span>
-            </a> -->
+
             <div class="gift-card reveal">
                 <span class="g-icon">🏦</span>
                 <span class="g-name serif">Banorte</span>
@@ -1383,7 +1338,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p class="label" style="color:var(--gold);">Nos casamos</p>
         <svg class="floral-sep" aria-hidden="true" style="color:rgba(201,169,110,0.55);margin:20px auto 16px;">
@@ -1394,7 +1348,6 @@
         <p>Con todo nuestro amor · Los esperamos</p>
     </footer>
 
-    <!-- RSVP WHATSAPP -->
     <section class="section">
         <p class="label reveal">¿Nos acompañas?</p>
         <svg class="floral-sep reveal" aria-hidden="true">
@@ -1416,9 +1369,7 @@
         </a>
     </section>
 
-
     <script>
-        // ── COUNTDOWN ────────────────────────────────────────
         (function () {
             const target = new Date('2026-08-28T18:00:00');
             function tick() {
@@ -1443,8 +1394,6 @@
             tick();
             setInterval(tick, 1000);
         })();
-
-        // ── SAVE THE DATE (.ics) ─────────────────────────────
         document.getElementById('btn-ics').addEventListener('click', function (e) {
             e.preventDefault();
             const ics = [
@@ -1468,8 +1417,6 @@
             a.click();
             URL.revokeObjectURL(a.href);
         });
-
-        // ── MUSIC PLAYER ──────────────────────────────────────
         const audio = document.getElementById('bg-audio');
         const musicBtn = document.getElementById('music-btn');
         const musicWave = document.getElementById('music-wave');
@@ -1479,8 +1426,6 @@
             musicWave.classList.toggle('active', state);
             musicBtn.setAttribute('aria-label', state ? 'Pausar música' : 'Reproducir música');
         }
-
-        // Arrancar en el primer gesto del usuario (política de navegadores)
         function startOnInteraction() {
             audio.play().then(() => {
                 setPlaying(true);
@@ -1502,15 +1447,11 @@
                 setPlaying(false);
             }
         });
-
-        // ── SCROLL REVEAL ─────────────────────────────────────
         const observer = new IntersectionObserver(
             entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
             { threshold: 0.12 }
         );
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // ── HAMBURGER MENU ────────────────────────────────────
         const navToggle = document.getElementById('nav-toggle');
         const navLinks = document.getElementById('nav-links');
 
